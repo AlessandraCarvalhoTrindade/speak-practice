@@ -92,11 +92,25 @@ function mostrarPergunta() {
 }
 
 function falarPergunta() {
-    const texto = document.getElementById("pergunta").innerText;
-    const utterance = new SpeechSynthesisUtterance(texto);
-    utterance.lang = "en-US";
-    utterance.rate = 0.9;
-    speechSynthesis.speak(utterance);
+    const atual = temaAtual[indiceAtual];
+
+    // Fala a pergunta
+    const pergunta = new SpeechSynthesisUtterance(atual.pergunta);
+    pergunta.lang = "en-US";
+    pergunta.rate = 0.85;
+
+    // Depois fala a sugestão de resposta
+    pergunta.onend = function() {
+        const sugestao = new SpeechSynthesisUtterance("You can say: " + atual.exemplo);
+        sugestao.lang = "en-US";
+        sugestao.rate = 0.85;
+        speechSynthesis.speak(sugestao);
+    };
+
+    speechSynthesis.speak(pergunta);
+
+    // Já mostra a resposta exemplo na tela também
+    mostrarRespostaExemplo();
 }
 
 function comecarReconhecimento() {
@@ -110,38 +124,6 @@ function comecarReconhecimento() {
     const recognition = new SpeechRecognition();
     recognition.lang = "en-US";
     recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
 
-    document.getElementById("btn-responder").innerText = "🎙️ Ouvindo...";
-
-    recognition.start();
-
-    recognition.onresult = function(event) {
-        const resultado = event.results[0][0].transcript;
-        document.getElementById("sua-resposta").innerText = "Você disse: " + resultado;
-        document.getElementById("btn-responder").innerText = "🎤 Responder";
-
-        // Mostra a resposta exemplo
-        const atual = temaAtual[indiceAtual];
-        document.getElementById("exemplo-ingles").innerText = atual.exemplo;
-        document.getElementById("exemplo-portugues").innerText = atual.traducao;
-        document.getElementById("resposta-exemplo").classList.remove("escondido");
-    };
-
-    recognition.onerror = function() {
-        document.getElementById("btn-responder").innerText = "🎤 Responder";
-        document.getElementById("sua-resposta").innerText = "Não consegui ouvir. Tente novamente.";
-    };
-
-    recognition.onend = function() {
-        document.getElementById("btn-responder").innerText = "🎤 Responder";
-    };
-}
-
-function proximaPergunta() {
-    indiceAtual++;
-    if (indiceAtual >= temaAtual.length) {
-        indiceAtual = 0;
-    }
-    mostrarPergunta();
-}
+    const btn = document.getElementById("btn-responder");
+    btn.innerText = "🎙️ Ouvindo...";
