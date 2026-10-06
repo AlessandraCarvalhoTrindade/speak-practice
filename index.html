@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speak Practice | Pratique Inglês Falando</title>
+    <link rel="stylesheet" href="style.css">
+</div>
+</head>
+<body>
+    <div class="container">
+        <h1>Speak Practice</h1>
+        <p class="subtitulo">Pratique conversação em inglês falando</p>
+
+        <div class="temas">
+            <button onclick="escolherTema('apresentacao')">Apresentação</button>
+            <button onclick="escolherTema('trabalho')">Trabalho</button>
+            <button onclick="escolherTema('viagem')">Viagem</button>
+            <button onclick="escolherTema('cotidiano')">Cotidiano</button>
+        </div>
+
+        <div id="area-pratica" class="area-pratica escondido">
+            <p class="pergunta" id="pergunta">Clique em um tema para começar</p>
+
+            <div class="botoes">
+                <button onclick="falarPergunta()">🔊 Ouvir pergunta</button>
+                <button onclick="comecarReconhecimento()" id="btn-responder">🎤 Responder</button>
+            </div>
+
+            <p id="sua-resposta" class="sua-resposta"></p>
+
+            <div id="resposta-exemplo" class="resposta-exemplo escondido">
+                <strong>Resposta exemplo:</strong>
+                <p id="exemplo-ingles"></p>
+                <p id="exemplo-portugues" class="traducao"></p>
+            </div>
+
+            <button onclick="proximaPergunta()" class="btn-proxima">Próxima pergunta</button>
+        </div>
+
+        <p class="aviso">Funciona melhor no Google Chrome</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
