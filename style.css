@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #1e40af;
+    margin-bottom: 6px;
+}
+
+.subtitulo {
+    color: #64748b;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.temas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.temas button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.temas button:hover {
+    background: #2563eb;
+}
+
+.area-pratica {
+    margin-top: 10px;
+}
+
+.escondido {
+    display: none;
+}
+
+.pergunta {
+    background: #eff6ff;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.botoes {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.botoes button {
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.botoes button:hover {
+    background: #0284c7;
+}
+
+.sua-resposta {
+    min-height: 24px;
+    margin-bottom: 15px;
+    color: #334155;
+    font-style: italic;
+}
+
+.resposta-exemplo {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.resposta-exemplo strong {
+    color: #166534;
+}
+
+.traducao {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+.btn-proxima {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.btn-proxima:hover {
+    background: #16a34a;
+}
+
+.aviso {
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
